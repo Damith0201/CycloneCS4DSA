@@ -10,4 +10,6 @@ package ds;
  */
 public class HouseFilee {
     
+    int lotNumber;
+        
 }
