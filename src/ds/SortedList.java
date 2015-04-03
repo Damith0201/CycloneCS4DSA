@@ -91,5 +91,52 @@ public class SortedList extends List {
     }
 
  
+       @Override
+    public void insert(Listable item) 
+    {
+        int location =0;
+        boolean moreToSearch = (location<numItems);
+        
+        while(moreToSearch)
+        {
+            if(item.compareTo(list[location])<0)
+            {
+                moreToSearch = false;
+            }
+            else
+            {
+                location++;
+                moreToSearch = (location<=numItems);
+            }
+        }
+        System.out.println("Sortd List!"+item.toString());
+        for(int index=numItems;index>location;index--)
+        {
+            list[index]=list[index-1];
+        }
+        
+        list[location] = item.copy();
+        numItems++;
+        
+        
+    }
+
+    @Override
+    public void delete(Listable item) 
+    {
+        int location =0;
+        
+        while(item.compareTo(list[location])!=0)
+        {
+            location++;
+        }
+        
+        for(int index=location+1;index<numItems;index++)
+        {
+            list[index-1] = list[index];
+        }
+        
+        numItems--;
+    }
     
 }
